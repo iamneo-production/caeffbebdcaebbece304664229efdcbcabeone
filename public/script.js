@@ -61,20 +61,17 @@ const ticTacToe = (element, index) => {
 
 // Function to reset the game
 const resetGame = () => {
-    // Your code to reset the game state
-    // ...
+    // Reset the game state
     cells = ['', '', '', '', '', '', '', '', ''];
     currentPlayer = 'X';
     result.textContent = '';
-    // Your code to re-enable buttons
-    btns.forEach((btn) => {
-        btn.textContent = '';
-        btn.disabled = false;
+
+    // Reset button text content and enable buttons
+    btns.forEach((btn, i) => {
+        btn.textContent = ''; // Clear the text content
+        btn.disabled = false; // Enable the button
     });
+
+    // Update the 'result' element to indicate the current player's turn
+    result.textContent = `Current player: ${currentPlayer}`;
 };
-
-btns.forEach((btn, i) => {
-    btn.addEventListener('click', () => ticTacToe(btn, i));
-});
-
-document.querySelector('#reset').addEventListener('click', resetGame);
